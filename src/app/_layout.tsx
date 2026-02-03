@@ -41,17 +41,24 @@ function WebTabsLayout() {
       }}
     >
       <WebTabs.Screen
-        name="index"
+        name="(schedules)"
         options={{
-          title: "Home",
-          tabBarIcon: (props) => <MaterialIcons {...props} name="home" />,
+          title: "Schedules",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="schedule" />,
         }}
       />
       <WebTabs.Screen
-        name="info"
+        name="(stations)"
         options={{
-          title: "Info",
-          tabBarIcon: (props) => <MaterialIcons {...props} name="info" />,
+          title: "Stations",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="place" />,
+        }}
+      />
+      <WebTabs.Screen
+        name="(planner)"
+        options={{
+          title: "Trip Planner",
+          tabBarIcon: (props) => <MaterialIcons {...props} name="directions" />,
         }}
       />
     </WebTabs>
@@ -61,24 +68,35 @@ function WebTabsLayout() {
 function NativeTabsLayout() {
   return (
     <NativeTabs>
-      <NativeTabs.Trigger name="index">
-        <NativeTabs.Trigger.Label>Home</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="(schedules)">
+        <NativeTabs.Trigger.Label>Schedules</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           {...Platform.select({
-            ios: { sf: { default: "house", selected: "house.fill" } },
+            ios: { sf: { default: "calendar", selected: "calendar.badge.clock" } },
             default: {
-              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="home" />,
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="schedule" />,
             },
           })}
         />
       </NativeTabs.Trigger>
-      <NativeTabs.Trigger name="info">
-        <NativeTabs.Trigger.Label>Info</NativeTabs.Trigger.Label>
+      <NativeTabs.Trigger name="(stations)">
+        <NativeTabs.Trigger.Label>Stations</NativeTabs.Trigger.Label>
         <NativeTabs.Trigger.Icon
           {...Platform.select({
-            ios: { sf: "cursorarrow.rays" },
+            ios: { sf: { default: "mappin", selected: "mappin.circle.fill" } },
             default: {
-              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="info" />,
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="place" />,
+            },
+          })}
+        />
+      </NativeTabs.Trigger>
+      <NativeTabs.Trigger name="(planner)">
+        <NativeTabs.Trigger.Label>Trip Planner</NativeTabs.Trigger.Label>
+        <NativeTabs.Trigger.Icon
+          {...Platform.select({
+            ios: { sf: { default: "arrow.triangle.turn.up.right.diamond", selected: "arrow.triangle.turn.up.right.diamond.fill" } },
+            default: {
+              src: <NativeTabs.Trigger.VectorIcon family={MaterialIcons} name="directions" />,
             },
           })}
         />
